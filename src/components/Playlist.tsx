@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { SpotifyApi, Track } from "@spotify/web-api-ts-sdk";
 import "./Playlist.css";
 
-const api = SpotifyApi.withClientCredentials(process.env.REACT_APP_CLIENT_ID as string, process.env.REACT_APP_CLIENT_SECRET as string);
+const api = SpotifyApi.withClientCredentials(
+    process.env.REACT_APP_CLIENT_ID as string,
+    process.env.REACT_APP_CLIENT_SECRET as string,
+    ["user-read-private", "playlist-read-private", "playlist-read-collaborative"]
+);
 
 const Playlist = () => {
     const [topTracks, setTopTracks] = useState<Track[]>([]);
