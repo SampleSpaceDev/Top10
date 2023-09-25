@@ -6,4 +6,6 @@ RUN npm install
 
 COPY . .
 
-CMD ["npm", "start"]
+RUN echo "npm start" > /app/start.sh
+RUN chmod +x /app/start.sh
+ENTRYPOINT ["/app/start.sh"]
