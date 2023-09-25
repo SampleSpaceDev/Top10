@@ -18,6 +18,13 @@ a {
     text-decoration: none;
 }
 
+.no-hm {
+    font-family: 'Outfit', monospace;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #9e8b8b;
+}
+
 /* Center the list horizontally with a fixed horizontal offset */
 .playlist {
     list-style: none;
@@ -71,22 +78,16 @@ a {
 
 .playlist-item-artist {
     font-size: 14px;
-    color: #9E8B8B;
+    color: #9e8b8b;
     font-weight: 400;
     font-family: 'Outfit', monospace;
 }
 
-/* Style the first item */
+/* Colour the first 3 positions */
+/* Note: nth-child is 1-indexed */
 .playlist-item:first-child .playlist-item-position {
     color: #ec9e2f;
     font-size: 28px;
-}
-
-
-/* Center-align the first item horizontally */
-.playlist-item:first-child {
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .playlist-item:nth-child(2) .playlist-item-position {

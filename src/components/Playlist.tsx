@@ -28,6 +28,7 @@ const Playlist = () => {
                 {topTracks.slice(0, 10).map((track: Track, index) => trackDisplay(track, index))}
             </ul>
             <h2>Honourable Mentions</h2>
+            {topTracks.slice(10).length === 0 && <p className="no-hm">None</p>}
             <ul>
                 {topTracks.slice(10).map((track: Track, index) => trackDisplay(track, index + 11))}
             </ul>
