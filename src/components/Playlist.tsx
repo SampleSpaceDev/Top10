@@ -23,7 +23,7 @@ const Playlist = () => {
 
     return (
         <div>
-            <h1><a href="https://open.spotify.com/user/31ey7aixeaqeqk3es3ur3er7ibmu?si=8b1d14d916d04700">Sam</a>'s Top 10</h1>
+            <h1><a href="https://open.spotify.com/user/31ey7aixeaqeqk3es3ur3er7ibmu">Sam</a>'s Top 10</h1>
             <ul>
                 {topTracks.slice(0, 10).map((track: Track, index) => trackDisplay(track, index))}
             </ul>
