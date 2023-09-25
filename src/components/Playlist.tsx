@@ -12,7 +12,7 @@ const Playlist = () => {
             console.log(process.env.CLIENT_ID)
             const playlistItems = await api.playlists.getPlaylistItems(process.env.REACT_APP_PLAYLIST_ID as string);
             const tracks: Track[] = [];
-            playlistItems.items.forEach((item, index) => {
+            playlistItems.items.forEach((item) => {
                 return tracks.push(item.track as Track);
             });
             setTopTracks(tracks);
