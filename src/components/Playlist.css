@@ -1,0 +1,116 @@
+@import url('https://db.onlinewebfonts.com/c/01173b246d9d9ea808ea75a26b3b61bb?family=CircularSpotifyTxT-Black');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap');
+
+h1, h2 {
+    font-family: 'CircularSpotifyTxT-Black', sans-serif;
+    font-size: 2rem;
+    color: #fff2e3;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    padding-top: 20px;
+}
+
+a {
+    color: #fff2e3;
+    text-decoration: none;
+}
+
+/* Center the list horizontally with a fixed horizontal offset */
+.playlist {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Stack list items vertically */
+    align-items: flex-start; /* Align to the left */
+    margin-left: 20px; /* Fixed horizontal offset */
+}
+
+.playlist-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.playlist-item-info {
+    display: flex;
+    align-items: center;
+}
+
+.playlist-item-position {
+    font-weight: 800;
+    margin-right: 10px;
+    width: 30px;
+    color: #888;
+    font-size: 18px;
+    font-family: 'Outfit', monospace;
+}
+
+.playlist-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.playlist-item-details {
+    text-align: left;
+}
+
+.playlist-item-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.playlist-item-artist {
+    font-size: 14px;
+    color: #9E8B8B;
+    font-weight: 400;
+    font-family: 'Outfit', monospace;
+}
+
+/* Style the first item */
+.playlist-item:first-child .playlist-item-position {
+    color: #ec9e2f;
+    font-size: 28px;
+}
+
+
+/* Center-align the first item horizontally */
+.playlist-item:first-child {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.playlist-item:nth-child(2) .playlist-item-position {
+    color: #c0c0c0;
+    font-size: 24px;
+}
+
+.playlist-item:nth-child(3) .playlist-item-position {
+    color: #9a4e15;
+    font-size: 20px;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .playlist {
+        align-items: flex-start; /* Center-align the list horizontally */
+        margin-left: 5px;
+    }
+
+    .playlist-item {
+        max-width: 95%; /* Allow items to take full width on smaller screens */
+    }
+
+    .playlist-item-name {
+        font-size: 1.5rem; /* Adjust font size for smaller screens */
+    }
+}
