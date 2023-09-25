@@ -10,8 +10,18 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2.2.0
+        with:
+          platforms: "arm64"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2.9.1
+        with:
+          platforms: "linux/arm64"
+
       - name: Build new image
-        run: docker build -t samplespace/top10 .
+        run: docker build --platform=linux/arm64 -t samplespace/top10 .
 
       - name: Save built image
         run: docker save samplespace/top10 -o top10.tar
