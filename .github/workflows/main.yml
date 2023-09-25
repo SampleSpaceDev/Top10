@@ -1,0 +1,36 @@
+on:
+    push:
+        branches:
+        - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+
+      - name: Build new image
+        run: docker build -t samplespace/top10 .
+
+      - name: Save built image
+        run: docker save samplespace/top10 -o top10.tar
+
+      - name: Copy built image to VPS
+        uses: easingthemes/ssh-deploy@v4.1.8
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          ARGS: "-rltgoDzvO --delete"
+          REMOTE_HOST: ${{ secrets.DEPLOY_SSH_HOST }}
+          REMOTE_USER: ${{ secrets.DEPLOY_SSH_USER }}
+          SOURCE: "top10.tar"
+          TARGET: ${{ secrets.DEPLOY_SSH_TARGET_DIR }}
+
+      - name: Load image and deploy new container
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.DEPLOY_SSH_HOST }}
+          username: ${{ secrets.DEPLOY_SSH_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script: ${{ secrets.DEPLOY_SSH_COMMAND }}
+          script_stop: true
