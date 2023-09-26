@@ -53,7 +53,11 @@ const trackDisplay = (track: Track, index: number) => {
                 />
             </div>
             <div className="playlist-item-details">
-                <p className="playlist-item-name"><a href={"https://open.spotify.com/track/" + track.id}>{track.name}</a></p>
+                <p className="playlist-item-name">
+                    <a href={"https://open.spotify.com/track/" + track.id}>
+                        {track.name.length > 40 ? track.name.slice(0, 40) + '...' : track.name}
+                    </a>
+                </p>
                 <p className="playlist-item-artist">{track.artists.map(artist => artist.name).join(", ")}</p>
             </div>
         </li>
